@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthHub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark mb-4">
+  <div class="container"><span class="navbar-brand">HealthHub</span></div>
+</nav>
+
+<div class="container text-center mb-4">
+  <h1>HealthHub</h1>
+  <p>Your health, simplified.</p>
+</div>
+
+<div class="container mb-4">
+  <h2>Pharmacy</h2>
+  <div class="card p-3 mb-2">
+    <h5>Paracetamol <span class="text-success">₹50</span></h5>
+    <button class="btn btn-primary btn-sm" onclick="addToCart('Paracetamol',50)">Add to Cart</button>
+  </div>
+  <div class="mb-2">Cart: <span id="cart-items">None</span> | Total: ₹<span id="total">0</span></div>
+  <button class="btn btn-danger btn-sm" onclick="clearCart()">Clear</button>
+</div>
+
+<div class="container mb-4">
+  <h2>Book Appointment</h2>
+  <input id="date" type="date" class="form-control mb-2" style="max-width:200px;display:inline-block">
+  <select id="slot" class="form-control mb-2" style="max-width:200px;display:inline-block">
+    <option>10:00 AM</option><option>12:00 PM</option>
+  </select>
+  <button class="btn btn-success btn-sm" onclick="bookAppointment()">Book</button>
+  <div id="confirmation" class="mt-2"></div>
+</div>
+
+<div class="container mb-4">
+  <h2>Fitness</h2>
+  <canvas id="fitnessChart" height="100"></canvas>
+</div>
+
+<div class="container mb-4">
+  <h2>Health Tip</h2>
+  <div class="alert alert-info">Drink 8 glasses of water daily!</div>
+</div>
+
+<div class="container mb-4">
+  <h2>BMI Calculator</h2>
+  <input id="height" type="number" placeholder="Height (cm)" class="form-control mb-2" style="max-width:150px;display:inline-block">
+  <input id="weight" type="number" placeholder="Weight (kg)" class="form-control mb-2" style="max-width:150px;display:inline-block">
+  <button class="btn btn-warning btn-sm" onclick="calculateBMI()">Calc BMI</button>
+  <div id="bmi-result" class="mt-2"></div>
+</div>
+
+<footer class="text-center p-3 bg-light">&copy; HealthHub</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+body {
+  background: #0b0b0f;
+  color: white;
+  font-family: Arial;
+  margin-top: 70px;
+}
+
+/* NAV */
+.custom-nav {
+  background: #111;
+}
+
+/* PURPLE */
+.text-purple {
+  color: #9b5de5;
+}
+
+.btn-purple {
+  background: #9b5de5;
+  color: white;
+}
+
+.btn-purple:hover {
+  background: #7a3fd1;
+}
+
+/* HERO */
+.hero {
+  padding: 120px 0;
+}
+
+.hero-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-left {
+  width: 55%;
+}
+
+.hero-right {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+/* IMAGE */
+.img-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(45deg, #9b5de5, #6a5acd);
+}
+
+.img-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* SECTIONS */
+.section {
+  padding: 70px 0;
+}
+
+.dark-section {
+  background: #111;
+}
+
+/* BOX */
+.box {
+  border: 1px solid #9b5de5;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #9b5de5;
+}
+
+/* CURSOR */
+.cursor-glow {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(155,93,229,0.2), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left, .hero-right {
+    width: 100%;
+  }
+
+  .img-circle {
+    margin-top: 20px;
+  }
+}
+/* FOOTER */
+.footer {
+  background: #111;
+  padding: 40px 0;
+  border-top: 1px solid #9b5de5;
+}
+
+/* SOCIAL BUTTONS */
+.social-links {
+  margin-top: 15px;
+}
+
+.social-btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid #9b5de5;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.social-btn:hover {
+  background: #9b5de5;
+  box-shadow: 0 0 15px #9b5de5;
+}

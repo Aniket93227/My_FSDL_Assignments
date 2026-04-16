@@ -1,0 +1,805 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background: #1a1a2e;
+    color: #e0e0e0;
+}
+
+/* === LOGIN SECTION === */
+.login-container {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    max-width: 420px;
+    width: 100%;
+    animation: slideIn 0.5s ease-out;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.login-header h1 {
+    color: #667eea;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.login-header i {
+    margin-right: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.form-label {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+body.dark-mode .form-label {
+    color: #ccc;
+}
+
+.form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+    color: #333;
+}
+
+body.dark-mode .form-control {
+    background: #2a2a3e;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.input-group-text {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    color: #667eea;
+    font-size: 16px;
+}
+
+body.dark-mode .input-group-text {
+    background: #2a2a3e;
+    border-color: #444;
+}
+
+.btn-login {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.btn-login i {
+    margin-right: 8px;
+}
+
+.signup-link {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+body.dark-mode .signup-link {
+    border-top-color: #444;
+}
+
+.signup-link p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+body.dark-mode .signup-link p {
+    color: #aaa;
+}
+
+.signup-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.login-sidebar {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .login-container {
+        justify-content: space-around;
+    }
+
+    .login-card {
+        max-width: 400px;
+    }
+
+    .login-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        color: white;
+        flex: 1;
+        max-width: 400px;
+    }
+
+    .feature-item {
+        text-align: center;
+    }
+
+    .feature-item i {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        color: #ffd700;
+    }
+
+    .feature-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .feature-item p {
+        font-size: 0.95rem;
+        opacity: 0.9;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === APP SECTION === */
+.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.navbar-dark {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .navbar-dark {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white !important;
+}
+
+.navbar-brand i {
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+}
+
+.navbar .btn-light {
+    transition: all 0.2s;
+}
+
+.navbar .btn-light:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+/* === STATS CARDS === */
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+body.dark-mode .stat-card {
+    background: #2a2a3e;
+    color: #e0e0e0;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    border-color: #667eea;
+    box-shadow: 0 12px 25px rgba(102, 126, 234, 0.2);
+}
+
+.stat-card i {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.stat-card h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #667eea;
+    margin: 10px 0;
+}
+
+body.dark-mode .stat-card h4 {
+    color: #88d4f8;
+}
+
+.stat-card p {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+body.dark-mode .stat-card p {
+    color: #aaa;
+}
+
+/* === CARD STYLING === */
+.card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    background: white;
+    border: none;
+}
+
+body.dark-mode .card {
+    background: #2a2a3e;
+    color: #e0e0e0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white;
+    border: none;
+    border-radius: 12px 12px 0 0;
+    padding: 15px 20px;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.card-header i {
+    margin-right: 8px;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+body.dark-mode .form-control {
+    background: #1a1a2e;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.form-range {
+    height: 6px;
+    border-radius: 3px;
+}
+
+.form-range::-webkit-slider-thumb {
+    background: #667eea;
+    border-radius: 50%;
+}
+
+.form-range::-moz-range-thumb {
+    background: #667eea;
+    border-radius: 50%;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(17, 153, 142, 0.3);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.3);
+}
+
+/* === TRIPS GRID === */
+.trips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.trip-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+}
+
+body.dark-mode .trip-card {
+    background: #2a2a3e;
+    color: #e0e0e0;
+}
+
+.trip-card:hover {
+    transform: translateY(-8px);
+    border-color: #667eea;
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+}
+
+.trip-card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    color: white;
+    position: relative;
+}
+
+.trip-card-header .destination {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.trip-card-header .price {
+    font-size: 1.3rem;
+    color: #ffd700;
+    margin: 5px 0 0 0;
+}
+
+.trip-card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffd700;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.trip-card-body {
+    padding: 15px;
+    flex: 1;
+}
+
+.trip-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.trip-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+body.dark-mode .trip-info-item {
+    color: #aaa;
+}
+
+.trip-rating {
+    color: #ffc107;
+    font-size: 0.9rem;
+}
+
+.trip-card-footer {
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 8px;
+}
+
+body.dark-mode .trip-card-footer {
+    border-top-color: #444;
+}
+
+.trip-card-footer button {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.85rem;
+}
+
+/* === STARS RATING === */
+.stars {
+    display: flex;
+    gap: 8px;
+    font-size: 2rem;
+}
+
+.stars i {
+    cursor: pointer;
+    color: #ddd;
+    transition: all 0.2s;
+}
+
+.stars i:hover,
+.stars i.active {
+    color: #ffc107;
+    transform: scale(1.2);
+}
+
+/* === ALERTS === */
+.alert {
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.alert-danger {
+    background: #ffe5e5;
+    color: #c41e3a;
+}
+
+body.dark-mode .alert-danger {
+    background: #4a2a2a;
+    color: #ff6b6b;
+}
+
+.alert-success {
+    background: #e5ffe5;
+    color: #117a11;
+}
+
+body.dark-mode .alert-success {
+    background: #2a4a2a;
+    color: #6bff6b;
+}
+
+/* === MODAL STYLING === */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+}
+
+body.dark-mode .modal-content {
+    background: #2a2a3e;
+    color: #e0e0e0;
+}
+
+.modal-header {
+    border: none;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.trip-card {
+    animation: slideUp 0.3s ease-out;
+}
+
+.stat-card {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-header h1 {
+        font-size: 2rem;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .trips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+}
+
+/* === UTILITY CLASSES === */
+.text-primary {
+    color: #667eea !important;
+}
+
+.text-muted {
+    color: #999 !important;
+}
+
+body.dark-mode .text-muted {
+    color: #666 !important;
+}
+
+.bg-light-gradient {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+/* === OFFER BANNER === */
+.offer-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    font-weight: 600;
+}
+
+body.dark-mode .offer-banner {
+    background: linear-gradient(135deg, #2a2a3e 0%, #16213e 100%) !important;
+}
+
+.offer-banner code {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* === WISHLIST === */
+.wishlist-item {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+/* === PROFILE === */
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 0 auto;
+}
+
+body.dark-mode .profile-avatar {
+    background: linear-gradient(135deg, #2a2a3e 0%, #16213e 100%);
+}
+
+/* === CATEGORY FILTER === */
+#categoryFilter .btn {
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+#categoryFilter .btn:hover {
+    transform: scale(1.05);
+}
+
+#categoryFilter .btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* === PROMO CODE === */
+#promoMessage {
+    color: #667eea;
+    font-weight: 600;
+}
+
+#promoMessage.success {
+    color: #11998e;
+}
+
+#promoMessage.error {
+    color: #f5576c;
+}
+
+/* === NOTIFICATION === */
+.notification {
+    background: white;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    animation: slideInRight 0.4s ease-out;
+    border-left: 4px solid #667eea;
+}
+
+body.dark-mode .notification {
+    background: #2a2a3e;
+    color: #e0e0e0;
+}
+
+.notification.success {
+    border-left-color: #11998e;
+}
+
+.notification.error {
+    border-left-color: #f5576c;
+}
+
+.notification.info {
+    border-left-color: #667eea;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* === TRIP CARD ENHANCEMENTS === */
+.trip-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.trip-category-badge {
+    display: inline-block;
+    background: #ffc107;
+    color: #333;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.trip-wishlist-btn {
+    color: #ddd;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.trip-wishlist-btn.active {
+    color: #f5576c;
+    transform: scale(1.2);
+}

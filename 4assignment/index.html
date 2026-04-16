@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hospital Operations Dashboard</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="main-frame">
+  <div class="container text-center mt-4">
+    <h1>Hospital Operations Dashboard</h1>
+    <p>Admissions, Bed Occupancy, Disease Trends, and Doctor Schedules</p>
+  </div>
+
+<div class="container">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="card stat-card py-3 px-3">
+        <h5 class="card-title">Patient Overview</h5>
+        <p class="display-6 mb-1">1,890</p>
+        <small>Emergency: 33% • General: 28% • Internal: 20% • Other: 19%</small>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card stat-card py-3 px-3">
+        <h5 class="card-title">Health Reports</h5>
+        <ul class="list-unstyled">
+          <li>Blood Test: done</li>
+          <li>Cardiac Report: done</li>
+          <li>Vaccination: pending</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card stat-card py-3 px-3">
+        <h5 class="card-title">Schedule</h5>
+        <p>R. Twiney 09:00 AM</p>
+        <p>R. Herdinger 10:00 AM</p>
+        <p>C. Simpson 11:00 AM</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 mt-3">
+    <div class="col-md-3">
+      <div class="card stat-card py-3 px-3">
+        <h5 class="card-title">Admitted Today</h5>
+        <p class="display-6 mb-1" id="admittedToday">128</p>
+        <small class="text-muted">+3% vs yesterday</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card stat-card py-3 px-3">
+        <h5 class="card-title">Available Beds</h5>
+        <p class="display-6 mb-1" id="availableBeds">87</p>
+        <small class="text-muted">20% free capacity</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card stat-card py-3 px-3">
+        <h5 class="card-title">Avg Length of Stay</h5>
+        <p class="display-6 mb-1" id="avgStay">4.2 days</p>
+        <small class="text-muted">Target: 3.8</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card stat-card py-3 px-3">
+        <h5 class="card-title">ER Wait Time</h5>
+        <p class="display-6 mb-1" id="erWait">21 min</p>
+        <small class="text-muted">Target: 18 min</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container section section-frame controls">
+  <div class="row gy-2 align-items-end">
+    <div class="col-md-3">
+      <label for="monthSelect" class="form-label">Display Period</label>
+      <select id="monthSelect" class="form-select">
+        <option value="6">Last 6 Months</option>
+        <option value="12" selected>Last 12 Months</option>
+        <option value="24">Last 24 Months</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <button id="refreshData" class="btn btn-primary w-100">Refresh Simulated Statistics</button>
+    </div>
+    <div class="col-md-3">
+      <button id="updateOccupancy" class="btn btn-warning w-100">Update Occupancy</button>
+    </div>
+    <div class="col-md-3">
+      <button id="toggleApiMode" class="btn btn-secondary w-100">Use Live API Data</button>
+    </div>
+  </div>
+</div>
+
+<section class="container section section-frame real-time">
+  <h3>Real-time Hospital Summary</h3>
+  <div class="row" id="liveMetrics">
+    <div class="col-md-3"><div class="card live-card"><div class="card-body"><h6>Current Time</h6><p id="liveTime">--:--:--</p></div></div></div>
+    <div class="col-md-3"><div class="card live-card"><div class="card-body"><h6>In-Patients</h6><p id="inPatients">--</p></div></div></div>
+    <div class="col-md-3"><div class="card live-card"><div class="card-body"><h6>New Admissions</h6><p id="newAdmissions">--</p></div></div></div>
+    <div class="col-md-3"><div class="card live-card"><div class="card-body"><h6>Discharges</h6><p id="newDischarges">--</p></div></div></div>
+  </div>
+</section>
+
+<section class="container section section-frame">
+  <h3>Admissions & Discharges</h3>
+  <canvas id="patientFlowChart"></canvas>
+</section>
+
+<section class="container section section-frame">
+  <h3>Bed Occupancy</h3>
+  <div class="occupancy-widget text-center">
+    <div class="occupancy-chart-wrap">
+      <canvas id="occupancyChart" width="220" height="120"></canvas>
+      <div class="occupancy-overlay"><span id="occupancyPct">--%</span><br><small>full</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="container section section-frame">
+  <h3>Disease Trends (Seasonal)</h3>
+  <canvas id="diseaseChart"></canvas>
+</section>
+
+<section class="container section section-frame">
+  <h3>Doctor Availability</h3>
+  <div class="table-responsive">
+    <table class="table table-dark table-striped" id="doctorSchedule">
+      <thead><tr><th>Doctor</th><th>Department</th><th>Status</th><th>Shift</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</div>
+</body>
+</html>
