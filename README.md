@@ -13,8 +13,8 @@ Each assignment focuses on building practical skills in developing modern, respo
 * **Assignment 4**: Backend Integration using Node.js and Express
 * **Assignment 5**: Full Stack Application (Frontend + Backend Integration)
 * **Assignment 6**: Advanced Full Stack Project with React, API Integration, and State Management
+* **Assignment 7**: Full Stack Web Application using React.js, Express, and MongoDB
 
-*(More assignments will be added progressively)*
 
 ---
 
